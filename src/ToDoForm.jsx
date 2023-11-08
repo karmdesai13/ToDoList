@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-    View
+  StyleSheet,
+  View
 } from 'react-native';
 
 export default function ToDoForm() {
