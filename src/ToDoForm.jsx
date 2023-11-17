@@ -17,7 +17,7 @@ const ToDoForm = ({ addTask }) => {
     title="Add Task"
     onPress={() => {
       addTask(newTask);
-      setNewTask(''); // Clear the input after adding the task
+      setNewTask(''); 
     }}
   />
 </View>
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 10,
-    backgroundColor: 'black',
+    
   },
   input: {
     flex: 1, 

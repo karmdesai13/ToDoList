@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   listContainer: {
     flex: 1,
     padding: 20,
-    backgroundColor: 'black',
+    
   },
   taskCard: {
     backgroundColor: 'white',

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import ToDoForm from './src/ToDoForm';
 import ToDoList from './src/ToDoList';
 
 function App() {
+  
   const [tasks, setTasks] = useState([
     { id: 1, text: 'Do laundry' },
     { id: 2, text: 'Go to gym' },
@@ -37,18 +38,25 @@ function App() {
   return (
     <SafeAreaView>
       <View style={styles.view}>
+      <ImageBackground source={require('./images/native.png')} style={{width: '100%', height: '100%'}}>
       <Text style={styles.title}>To Do List</Text>
       <View style={styles.lineStyle}>
       <Text style={styles.date}>16th November,2023</Text>
       <ToDoList tasks={tasks} removeTask={removeTask} />
       <ToDoForm addTask={addTask} />
       </View>
+      </ImageBackground>
       </View>
+      
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  imageBackground: {
+    flex: 1,
+    justifyContent: 'center', 
+  },
   title: {
     fontSize: 36,
     color: 'white',
@@ -70,9 +78,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   lineStyle:{
-    backgroundColor:'black',
-    borderWidth: 0.5,
-    borderColor:'black',
+    
+    
+    
     margin:10,
     borderRadius: 20,
     height: 700,
