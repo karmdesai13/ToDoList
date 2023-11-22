@@ -8,6 +8,8 @@ import ToDoList from '../ToDoList';
 
 function Home({ navigation }) {
 
+  
+
 
     const [tasks, setTasks] = useState([
         { id: 1, text: 'Do laundry' },

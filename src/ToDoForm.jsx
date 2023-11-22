@@ -1,8 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, StyleSheet, TextInput, View } from 'react-native';
+
 
 const ToDoForm = ({ addTask }) => {
   const [newTask, setNewTask] = useState('');
+  const [tasks, setTasks] = useState([]);
+
+
+  useEffect(() => {
+    
+    const fetchTasks = async () => {
+      try {
+        
+        const tasksData = await import('./tasks.json');
+        setTasks(tasksData.tasks);
+      } catch (error) {
+        console.error('Failed to fetch tasks:', error);
+      }
+    };
+
+    fetchTasks();
+  }, []);
+
+  const handleAddRandomTask = () => {
+    
+    if (tasks.length > 0) {
+      const randomIndex = Math.floor(Math.random() * tasks.length);
+      const randomTask = tasks[randomIndex];
+      setNewTask(randomTask);
+    }
+  };
 
   return (
     <View style={styles.form}>
@@ -18,8 +45,13 @@ const ToDoForm = ({ addTask }) => {
     onPress={() => {
       addTask(newTask);
       setNewTask(''); 
-    }}
-  />
+    }}/>
+
+    <Button style={styles.button}
+          title="Generate Random Task"
+          onPress={handleAddRandomTask}
+        />
+  
 </View>
     </View>
   );
